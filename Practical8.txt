@@ -1,0 +1,25 @@
+
+##Program for curve fitting
+
+import numpy as np
+import math
+n=int(input("Enter number of readings"))
+t=list(map(float,input("Enter time at which voltage is recorded(msec)").sp
+lit()))
+Vc=list(map(float,input("Enter the voltgae across capacitor(volts)").split
+()))
+t1=np.array(t)
+Vc1=np.array(Vc)
+Sx=sum(t1); Sx2=sum(t1**2); Sx3=sum(t1**3); Sx4=sum(t1**4);
+Sy=sum(Vc1); Sxy=sum(t1*Vc1); Sx2y=sum(t1*t1*Vc1)
+X=[[Sx2, Sx, n],
+[Sx3, Sx2, Sx],
+[Sx4, Sx3, Sx2]]
+Y=[[Sy], [Sxy], [Sx2y]]
+Cof=np.dot(np.linalg.inv(X),Y)
+print(Cof)
+
+#print("The best fit equation is Vc="+"{:0.3f}".format(Cof[0,0]),"t^2+"+"{:
+0.3f}".format(Cof[1,0]),"t+"+"{:0.3f}".format(Cof[2,0]))
+
+print(Cof[0,0], "t^2", "+", Cof[1,0],"t","+",Cof[2,0]

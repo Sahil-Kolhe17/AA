@@ -1,0 +1,14 @@
+##Program for matrix operations
+
+import numpy as np
+from numpy import linalg as LA
+M1 = np.array([[1,4],[5,6]])
+M2 = np.array([[1,-4],[3,-2]])
+print("[M1]+[M2]=",M1+M2)
+print("[M1]-[M2]=",M1-M2)
+print("[M1][M2]=",M1.dot(M2))
+print("Transpose of [M1]=",M1.transpose())
+print("Inverse of [M1]=",np.linalg.inv(M1))
+w, v = LA.eig(np.array(M1))
+print("Eigen Values of [M1]=",w)
+print("Eigen Vectors of [M1]=",v
